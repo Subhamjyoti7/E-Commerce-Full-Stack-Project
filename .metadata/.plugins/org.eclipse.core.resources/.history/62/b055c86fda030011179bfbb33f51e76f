@@ -1,0 +1,32 @@
+package com.subham.controller;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.subham.entity.Orders;
+import com.subham.repository.OrderRepository;
+
+@RestController
+@RequestMapping("/api/v1/orders")
+public class OrderController {
+
+    @Autowired
+    private OrderRepository repo;
+
+    @PostMapping
+    public ResponseEntity<?> createOrder(
+            @RequestHeader(value = "X-USER-EMAIL", required = false) String email,
+            @RequestBody Orders order
+    ) {
+        if (email == null || email.isBlank()) {
+            return ResponseEntity.status(401).body("Login required");
+        }
+
+        order.setUserEmail(email);
+        return ResponseEntity.ok(repo.save(order));
+    }
+}
+
+

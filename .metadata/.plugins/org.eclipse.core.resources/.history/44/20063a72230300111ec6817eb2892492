@@ -1,0 +1,5 @@
+package com.subham.repository;
+
+public interface UserRepository {
+
+}

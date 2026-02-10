@@ -1,0 +1,23 @@
+package com.subham.controller;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.subham.entity.Orders;
+import com.subham.repository.OrderRepository;
+
+@RestController
+@RequestMapping("/api/v1/orders")
+@CrossOrigin
+public class OrderController {
+
+    @Autowired
+    private OrderRepository repo;
+
+    @PostMapping
+    public Orders createOrder(@RequestBody Orders order) {
+        return repo.save(order);
+    }
+}
+

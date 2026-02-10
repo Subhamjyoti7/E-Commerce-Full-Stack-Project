@@ -1,0 +1,5 @@
+package com.subham.config;
+
+public class CorsConfig {
+
+}

@@ -1,0 +1,11 @@
+# Backend
+backend/target/
+backend/.idea/
+backend/.vscode/
+
+# Frontend
+frontend/node_modules/
+
+# Common
+*.log
+.env
