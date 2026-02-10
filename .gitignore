@@ -9,3 +9,10 @@ frontend/node_modules/
 # Common
 *.log
 .env
+
+# Eclipse
+.metadata/
+
+# Spring secrets
+shopverse-backend/src/main/resources/application.properties
+
